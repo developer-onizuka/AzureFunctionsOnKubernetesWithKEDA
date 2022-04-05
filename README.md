@@ -1,5 +1,8 @@
 # Azure Functions On Kubernetes With KEDA
 
+Azure Functions is a service on Azure that consists of a runtime part that executes functions and a part that controls scaling, of which the latter scaling control can be replaced with Kubernetes and KEDA. Azure Functions can run on Kubernetes with KEDA, so you can use Azure Functions outside of your Azure platform, such as your on-premises environment.
+
+
 # 1. Run registry
 In my case, the private registry run at 192.168.1.5, which is outside of the kubernetes cluster.
 ```
