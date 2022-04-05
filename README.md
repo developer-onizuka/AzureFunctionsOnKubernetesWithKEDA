@@ -3,13 +3,13 @@
 Azure Functions is a service on Azure that consists of a runtime part that executes functions and a part that controls scaling, of which the latter scaling control can be replaced with Kubernetes and KEDA. Azure Functions can run on Kubernetes with KEDA, so you can use Azure Functions outside of your Azure platform, such as your on-premises environment.
 
 
-# 1. Run registry
+# 1. Run the registry somewhere
 In my case, the private registry run at 192.168.1.5, which is outside of the kubernetes cluster.
 ```
 $ sudo docker run --rm --name registry -d -p 5000:5000 -v /mnt/registry:/var/lib/registry registry:2.7.1
 ```
 
-# 2. Install Azure-functions-core-tools
+# 2. Install Azure-functions-core-tools in Kubernetes Master node
 
 ```
 # wget -q https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb
@@ -54,7 +54,7 @@ You can also install KEDA instead of helm:
 $ func kubernetes install --namespace keda
 ```
 
-# 4. Build App as Docker container
+# 4. Build App as Docker container in Kubernetes Master node
 ```
 # mkdir keda
 # cd keda
@@ -111,7 +111,7 @@ Dockerfile  getting_started.md  host.json  local.settings.json  myfuncapp  requi
 # docker build -t myfuncapp:v1 .
 ```
 
-# 5. Deploy it to the Kubernetes Cluster
+# 5. Deploy it to the Kubernetes Cluster in Kubernetes Master node
 ```
 # func kubernetes deploy --name myfunctionapp --registry 192.168.1.5:5000
 Running 'docker build -t 192.168.1.5:5000/myfunctionapp:latest /home/vagrant/keda'..done
