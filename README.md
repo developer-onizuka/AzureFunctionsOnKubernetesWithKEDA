@@ -132,4 +132,4 @@ $ curl 192.168.33.1:5000/v2/myfunctionapp/tags/list
 ```
 
 # 6. Access to it
-<img src="https://github.com/developer-onizuka/AzureFunctionsOnKubernetesWithKEDA/blob/main/azureFunc1.png" width="480">
+<img src="https://github.com/developer-onizuka/AzureFunctionsOnKubernetesWithKEDA/blob/main/azureFunc1.png" width="640">
