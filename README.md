@@ -112,6 +112,11 @@ Dockerfile  getting_started.md  host.json  local.settings.json  myfuncapp  requi
 ```
 
 # 5. Deploy it to the Kubernetes Cluster in Kubernetes Master node
+
+When you run the command below:
+- Register the container with docker push <br>
+- Deploy the container in Kubernetes
+
 ```
 # func kubernetes deploy --name myfunctionapp --registry 192.168.1.5:5000
 Running 'docker build -t 192.168.1.5:5000/myfunctionapp:latest /home/vagrant/keda'..done
