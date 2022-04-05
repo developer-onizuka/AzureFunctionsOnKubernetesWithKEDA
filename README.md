@@ -54,7 +54,7 @@ You can also install KEDA instead of helm:
 $ func kubernetes install --namespace keda
 ```
 
-# 4. Build App as Docker container in Kubernetes Master node
+# 4. Create Dockerfile thru Azure Function tools in Kubernetes Master node
 ```
 # mkdir keda
 # cd keda
@@ -107,13 +107,12 @@ The function "myfuncapp" was created successfully from the "HTTP trigger" templa
 
 # ls
 Dockerfile  getting_started.md  host.json  local.settings.json  myfuncapp  requirements.txt
-
-# docker build -t myfuncapp:v1 .
 ```
 
 # 5. Deploy it to the Kubernetes Cluster in Kubernetes Master node
 
 When you run the command below:
+- Build the container <br>
 - Register the container with docker push <br>
 - Deploy the container in Kubernetes
 
