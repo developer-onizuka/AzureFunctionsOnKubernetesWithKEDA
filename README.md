@@ -9,7 +9,18 @@ In my case, the private registry run at 192.168.1.5, which is outside of the kub
 $ sudo docker run --rm --name registry -d -p 5000:5000 -v /mnt/registry:/var/lib/registry registry:2.7.1
 ```
 
-# 2. Install KEDA with Helm in Kubernetes Master node
+# 2. Install Azure-functions-core-tools
+
+```
+# wget -q https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb
+# sudo dpkg -i packages-microsoft-prod.deb
+# sudo apt-get update
+# sudo apt-get install azure-functions-core-tools-4
+# func --version
+4.0.3971
+```
+
+# 3. Install KEDA with Helm in Kubernetes Master node
 ```
 # helm repo add kedacore https://kedacore.github.io/charts
 "kedacore" has been added to your repositories
@@ -38,15 +49,9 @@ keda-operator-8644dcdb79-j9tb9                    1/1     Running   0          1
 keda-operator-metrics-apiserver-66d6c4454-k9z8d   1/1     Running   0          18m   10.10.235.134   worker1   <none>           <none>
 ```
 
-# 3. Install Azure-functions-core-tools
-
+You can also install KEDA instead of helm:
 ```
-# wget -q https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb
-# sudo dpkg -i packages-microsoft-prod.deb
-# sudo apt-get update
-# sudo apt-get install azure-functions-core-tools-4
-# func --version
-4.0.3971
+$ func kubernetes install --namespace keda
 ```
 
 # 4. Build App as Docker container
